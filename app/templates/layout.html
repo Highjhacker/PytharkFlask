@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <!--Import Google Icon Font-->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!--Import materialize.css-->
+            <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='materialize.min.css') }}"  media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"  media="screen,projection"/>
+            <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            {% block head %}{% endblock %}
+        </head>
+
+        <body>
+            <div class="navbar-fixed">
+                <nav class="#212121 grey darken-4">
+                    <div class="nav-wrapper">
+                        <a href="#" class="brand-logo center"><i class="material-icons right"></i>Pythark Web</a>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <ul id="nav-left" class="left hide-on-med-and-down">
+                            <li {% if request.url_rule.endpoint == "main.index" %} class="active"{% endif %}>
+                                <a href="{{ url_for('main.index') }}">Home</a>
+                            </li>
+                        </ul>
+                    </div>
+                {% block navbar %} {% endblock %}
+                </nav>
+            </div>
+
+            <div class="section no-pad-bot" id="index-banner">
+                <div class="row">
+                    <div class="col s12 m10 l10 offset-m1 offset-l1">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div id="flashed-message toast-container">
+                                        <script type="text/javascript">
+                                            document.addEventListener('DOMContentLoaded', function() {
+                                                Materialize.toast('{{ message }}', 10000);
+                                            }, false);
+                                        </script>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+                {% block sup %}{% endblock %}
+            </div>
+
+            <main class="main">
+                <div class="container">
+                    {% block content %} {% endblock %}
+                </div>
+            </main>
+
+            <footer class="page-footer #212121 grey darken-4">
+                <div class="footer-copyright #F0373C">
+                    <div class="container">
+                        © 2017-2018 Pythark Web, All rights reserved.
+                    </div>
+                </div>
+                {% block footer %}{% endblock %}
+            </footer>
+
+            <!--Import jQuery before materialize.js-->
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+        </body>
+    </html>

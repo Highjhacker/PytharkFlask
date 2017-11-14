@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+@media(min-width: 1024px) {
+    #toast-container {
+        top: 10%;
+        right: 1%;
+        bottom: auto !important;
+        left: auto !important;;
+    }
+}
+
+#toast-container .toast {
+    cursor: pointer;
+}
+#toast-container .toast::after {
+    font-family: 'Material Icons';
+    content: "close";
+    -webkit-font-feature-settings: 'liga';
+    color: #00bfa5;
+    font-size: 1.5rem;
+    font-weight: 300;
+    float: right;
+    padding-left: 3rem;
+}

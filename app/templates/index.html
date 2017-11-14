@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+    <div class="section">
+        <div class="row">
+            <form class="" method="POST" action="">
+                <div class="input-field col s6">
+                    <input id="delegate_name" type="text" class="validate" name="delegate_name">
+                    <label class="active" for="delegate_name">Delegate name</label>
+                    <input class="btn waves-effect waves-light #616161 grey darken-2" type="submit" value="SUBMIT">
+                </div>
+            </form>
+        </div>
+                    <div class="row">
+            {% if searched_delegate %}
+            <pre>{{ searched_delegate }}</pre>
+            {% endif %}
+                </div>
+    </div>
+{% endblock %}
