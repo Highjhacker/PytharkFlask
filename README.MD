@@ -2,7 +2,7 @@
 
 # PytharkFlask
 
-Ark API Wrapper in Python.
+A Pythark example based on Flask, allowing us to search for delegates.
 
 ## Built with
 - [Python](https://www.python.org/)
