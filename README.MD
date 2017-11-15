@@ -4,6 +4,8 @@
 
 A Pythark example based on Flask, allowing us to search for delegates.
 
+[Demo](https://pytharkflask.herokuapp.com/)
+
 ## Built with
 - [Python](https://www.python.org/)
 - [PythArk](https://github.com/Highjhacker/pythark/)
